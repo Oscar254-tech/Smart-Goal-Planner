@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateDaysLeft, getGoalStatus } from '../utils/goalUtils';
+import { calculateDaysLeft } from '../utils/goalUtils';
 
 function Overview({ goals }) {
   const totalGoals = goals.length;
