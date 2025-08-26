@@ -14,7 +14,9 @@ function App() {
 
   const fetchGoals = async () => {
     try {
+
       const response = await axios.get('http://localhost:3001/goals'); // <-- Changed port to 3001
+
       setGoals(response.data);
       setLoading(false);
     } catch (error) {
@@ -25,7 +27,9 @@ function App() {
 
   const addGoal = async (newGoal) => {
     try {
+
       const response = await axios.post('http://localhost:3001/goals', newGoal); // <-- Changed port to 3001
+
       setGoals([...goals, response.data]);
     } catch (error) {
       console.error('Error adding goal:', error);
@@ -34,7 +38,11 @@ function App() {
 
   const updateGoal = async (id, updatedGoal) => {
     try {
+
       await axios.put(`http://localhost:3001/goals/${id}`, updatedGoal); // <-- Changed port to 3001
+
+      await axios.put(`http://localhost:3001/goals/${id}`, updatedGoal); // ← PORT 3001
+
       setGoals(goals.map(goal => goal.id === id ? updatedGoal : goal));
     } catch (error) {
       console.error('Error updating goal:', error);
@@ -43,7 +51,11 @@ function App() {
 
   const deleteGoal = async (id) => {
     try {
+
       await axios.delete(`http://localhost:3001/goals/${id}`); // <-- Changed port to 3001
+
+      await axios.delete(`http://localhost:3001/goals/${id}`); // ← PORT 3001
+
       setGoals(goals.filter(goal => goal.id !== id));
     } catch (error) {
       console.error('Error deleting goal:', error);
@@ -57,7 +69,11 @@ function App() {
         ...goalToUpdate,
         savedAmount: Number(goalToUpdate.savedAmount) + Number(amount)
       };
+
       await axios.patch(`http://localhost:3001/goals/${id}`, { savedAmount: updatedGoal.savedAmount }); // <-- Changed port to 3001
+
+      await axios.patch(`http://localhost:3001/goals/${id}`, { savedAmount: updatedGoal.savedAmount }); // ← PORT 3001
+ 
       setGoals(goals.map(goal => goal.id === id ? updatedGoal : goal));
     } catch (error) {
       console.error('Error making deposit:', error);

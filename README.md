@@ -38,14 +38,20 @@ A React-based financial goal tracking application with full CRUD operations, pro
 1. Clone the repository:
    ```bash
    git clone https://github.com/Oscar254-tech/Smart-Goal-Planner.git
+
+2. **Start JSON Server** (Terminal 1 - port 3001):
+   ```bash
+   npx json-server --watch db.json --port 3001
    
-2. Install and watch db.json server
-    ```bash
-    npm install -g json-server
-    json-server --watch db.json
-3. Start the server
+3. **Start React App** (Terminal 2 - port 3000):
    ```bash
    npm start
+
+4. **Access the application**:
+
+- Frontend: http://localhost:3000
+
+- Backend API: http://localhost:3001/goals
 
 ## Author
 
